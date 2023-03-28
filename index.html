@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <title>Descàrrega de nomenaments del personal aplicador</title>
+    <meta charset="UTF-8" />
+    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  
+  <body>
+		<h1>Descàrrega de nomenaments</h1>
+
+		<p> Introduïu el vostre DNI/NIE </p>
+		<input type="text" id="userInput"/>
+		
+		<button type="button" onclick="username()">Descarrega</button>
+		<p> Exemple format DNI: 12345678X (tot seguit i amb la lletra majúscula)</p>
+		<p> Exemple format NIE: X1234567Y (tot seguit i amb les lletres majúscules)</p>
+		<a href="https://serveiseducatius.xtec.cat/santadria" target="_blank"><img src="http://sesantadria.cat/nomenaments/logo se nou.png" alt="Logotip del Servei Educatiu de Sant Adrià" width="100px" height="100px"></a>
+		<iframe id="my_iframe" style="display:none;"></iframe>
+		
+		<script type="text/javascript" >
+			function username() {	
+				var input = document.getElementById("userInput").value;
+				var url = "https://sesantadria.cat/nomenaments/docs/"+input+".pdf";
+				$.ajax({ 
+  					url: url,
+   				type: 'HEAD',
+   				success: function () {
+      				document.getElementById('my_iframe').src = url;
+   				},
+   				error: function () {
+      				alert("El DNI introduït no és correcte");
+   				},
+				})
+				//alert(input);
+				//alert(url);
+				
+			}
+		</script>
+	</body>
+</html>
+
