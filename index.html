@@ -26,16 +26,16 @@
   					url: url,
    				type: 'HEAD',
    				success: function () {
-      				document.getElementById('my_iframe').src = url;
+      					window.location.href=url;
    				},
    				error: function () {
-      				alert("El DNI introduït no és correcte");
+      					alert("El DNI introduït no és correcte");
    				},
-				})
-				//alert(input);
-				//alert(url);
+			})
+			//alert(input);
+			//alert(url);
 				
-			}
+		}
 		</script>
 	</body>
 </html>
